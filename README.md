@@ -26,6 +26,8 @@ function animate(time) {
 
 ### Transition.Easing
 
+缓动算法引用tween.js
+
 Linear:{None: ƒ}
 
 Quad:{In: ƒ, Out: ƒ, InOut: ƒ}
