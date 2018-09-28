@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transition.js</title>
+    <style>
+        .show{position:absolute;left:10px;top:50px;width:4em;height:4em;background:red;}
+        .show2{position:absolute;left:100px;top:50px;width:4em;height:4em;background:blue;}
+        .controller{position:absolute;left:0;bottom:2em;width:100%;text-align:center;}
+    </style>
+</head>
+<body>
+    <div class="show"></div>
+
+    <div class="controller">        
+        <button id="start">开始</button>
+        <button id="play">播放</button>
+        <button id="pause">暂停</button>
+        <button id="stop">停止</button>
+    </div>
+
+
+    <script src="js/Transition.min.js"></script>
+    <script>
+            "use strict";
+            var show=document.querySelector(".show");
+
+            var values={
+                x:0,
+                y:0,
+                opacity:1
+            };
+            var trans=new Transition(values)
+                        .to({x:400,y:50,opacity:0.2},{
+                            duration:1000
+                            //,delay:1000
+                        })
+                        .to({
+                            x:"400",
+                            y:"+300",
+                            opacity:1
+                            
+                        },{
+                            duration:3000
+                            //,delay:1000
+                            ,easing:Transition.Easing.Bounce.Out
+                        })
+                        .yoyo(true)
+                        .repeat(0)  //Infinity
+                        .on("start",function(){
+                            console.log("start callback");
+                        })
+                        .on("update",function(target,progress){
+                            show.style.transform="translate("+target.x+"px,"+target.y+"px)";
+                            show.style.opacity=target.opacity;
+                        })
+                        .on("next",function(target,index){
+                            console.log("next callback",index)
+                        })
+                        .on("complete",function(target){
+                            console.log("complete callback")
+                        })
+                        .on("repeat",function(target,repeat){
+                            console.log("repeat callback",repeat)
+                        })
+                        .on("stop",function(){
+                            console.log("stop callback")
+                        });
+
+
+      //开始          
+      document.querySelector("#start").addEventListener("click",function(){
+            trans.start();
+      },false);   
+
+      //播放
+      document.querySelector("#play").addEventListener("click",function(){
+            trans.play();
+      },false);  
+
+      //暂停
+      document.querySelector("#pause").addEventListener("click",function(){
+            trans.pause();
+      },false); 
+      
+      //停止
+      document.querySelector("#stop").addEventListener("click",function(){
+            trans.stop();
+      },false);      
+   
+    document.addEventListener("visibilitychange",function(){
+        if(document.hidden){
+            Transition.pause();
+        }
+        else
+        {
+            Transition.play();
+        }
+    },false);
+
+   
+    function render(t){
+        requestAnimationFrame(render);
+        Transition.update(t);
+    }
+    requestAnimationFrame(render);
+        </script>
+</body>
+</html>
