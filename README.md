@@ -1,10 +1,5 @@
-# transition.js
+# Transition.js
 JavaScript tweening engine for easy animations
-
-
-# tween.js
-
-JavaScript tweening engine for easy animations, incorporating optimised Robert Penner's equations.
 
 
 ```javascript
