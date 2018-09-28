@@ -19,6 +19,9 @@ function animate(time) {
 }
 ```
 
+#### 有了Tween.js和TweenLite.js，为什么还要Transition.js
+![因为](https://cdn.files.qdfuns.com/article/content/picture/201809/28/175853bsmkj6iqsf7msfzj.jpg)
+
 ### Show
 <a href="http://htmlpreview.github.io/?https://github.com/anderpang/transitionjs/blob/master/index.html" target="_blank">index.html</a>
 
