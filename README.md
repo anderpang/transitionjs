@@ -61,6 +61,24 @@ Sine:{In: ƒ, Out: ƒ, InOut: ƒ}
 }
 ```
 
+### Transition Methods
+```javascript
+   Transition.play();
+   Transition.pause();
+   Transition.update(time);
+   
+   doument.addEventListener("visibilitychange",function(){
+        if(document.hidden)
+	{
+	    Transition.pause();
+	}
+	else
+	{
+	    Transition.play();
+	}
+   },false);
+```
+
 
 ### Methods
 ```javascript
@@ -76,14 +94,16 @@ transition.repeat(int);
 ```
 
 timeline:
+
   |-------------------|---------------------|
  
- start()            pause()/play()        stop()
+ start() &emsp; &emsp; &emsp; &emsp;pause()/play()  &emsp; &emsp; &emsp; &emsp; &emsp;       stop()
  
 ### properties:
 ```javascript
 tarnsition.paused    //true or false
 ````
+
 
 
 
