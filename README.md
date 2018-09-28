@@ -19,6 +19,11 @@ function animate(time) {
 }
 ```
 
+### Show
+<a href="http://htmlpreview.github.io/?https://github.com/anderpang/transitionjs/blob/master/index.html" target="_blank">index.html</a>
+
+<a href="http://htmlpreview.github.io/?https://github.com/anderpang/transitionjs/blob/master/index.html" target="_blank">demo.html</a>
+
 ### Transition.Easing
 
 缓动算法引用tween.js
