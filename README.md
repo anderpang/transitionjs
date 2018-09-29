@@ -6,8 +6,24 @@ JavaScript tweening engine for easy animations
 var values = { x: 0, y: 0 };
 var trans = new Transition(values)
 	.to({ x: 100, y: 100 }, 1000)
-	.on("update",function() {
-		console.log(this.x, this.y);
+	.on("update",function(target) {
+		console.log(target.x, target.y);
+	})
+	.start();
+
+requestAnimationFrame(animate);
+
+function animate(time) {
+	requestAnimationFrame(animate);
+	Transition.update(time);
+}
+```
+```javascript
+var trans = new Transition({ x: 0, y: 0 })
+	.to({ x: 100, y: 100 }, 1000)
+	.to({ x: 100, y: "+100"},{ duration: 2000, delay: 1000 })
+	.on("update",function(target) {
+		console.log(target.x, target.y);
 	})
 	.start();
 
