@@ -1,6 +1,27 @@
 # Transition.js
 JavaScript tweening engine for easy animations
 
+## npm
+
+```bash
+
+$ npm install transition-ani-js
+
+```
+
+```javascript
+   var sprite = {};
+   var from = {
+		 x: 0,
+		 y: 0
+   };
+   var to={
+	   x: 100,
+	   y: 100
+   };
+
+   new Transition(sprite,from).to(to);
+```
 
 ```javascript
 var values = { x: 0, y: 0 };
@@ -42,6 +63,9 @@ function animate(time) {
 <a href="http://htmlpreview.github.io/?https://github.com/anderpang/transitionjs/blob/master/index.html" target="_blank">index.html</a>
 
 <a href="http://htmlpreview.github.io/?https://github.com/anderpang/transitionjs/blob/master/index.html" target="_blank">demo.html</a>
+
+### Transition.now()
+Transition内部运用的当前时间
 
 ### Transition.Easing
 
