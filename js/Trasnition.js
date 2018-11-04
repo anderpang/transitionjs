@@ -1,5 +1,5 @@
 /*!
- * Transition.js 1.1.2
+ * Transition.js 1.2.0
  * https://github.com/anderpang/transitionjs
  * <anderpang@foxmail.com>
  */
@@ -340,6 +340,15 @@
     };
    
     Transition.now=getNow;
+
+    Transition._nullObject=Object.create(null);
+    Transition.delay=function(cb,delay){
+       new this(this._nullObject)
+           .to(this._nullObject,delay)
+           .on("complete",cb)
+           .start();
+       return this;
+    };
    
     Transition.Events={
         START:"start",
