@@ -160,6 +160,7 @@
                else{
                    this._chains[this._current].startTime=timeStamp;
                }
+               playList.add(this);
            }
            return this;
         },
